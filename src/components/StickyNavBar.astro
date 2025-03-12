@@ -1,0 +1,110 @@
+---
+---
+
+<nav id="sticky-navbar" class="sticky-navbar">
+  <div class="container">
+    <div class="navbar-content">
+      <div class="navbar-brand">Joe Paul</div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Wait for the DOM to be fully loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    const navbar = document.getElementById('sticky-navbar');
+    const heroSection = document.querySelector('.hero-section');
+    
+    if (navbar && heroSection) {
+      // Function to handle scroll event
+      const handleScroll = () => {
+        // Get the bottom position of the hero section
+        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+        
+        // If we've scrolled past the hero section, show the navbar
+        if (window.scrollY > heroBottom - 100) {
+          navbar.classList.add('visible');
+        } else {
+          navbar.classList.remove('visible');
+        }
+      };
+      
+      // Add scroll event listener
+      window.addEventListener('scroll', handleScroll);
+      
+      // Call once on load to set initial state
+      handleScroll();
+    }
+  });
+</script>
+
+<style>
+  .sticky-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    height: 60px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .sticky-navbar.visible {
+    transform: translateY(0);
+  }
+  
+  .container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbar-brand {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+  
+  .navbar-links {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    gap: 25px;
+  }
+  
+  .navbar-links li {
+    padding: 5px;
+  }
+  
+  .navbar-links a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+  }
+  
+  .navbar-links a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .navbar-links {
+      gap: 15px;
+    }
+  }
+</style>
