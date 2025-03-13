@@ -1,6 +1,7 @@
 ---
 import backgroundVideo from '../assets/funky-lookin-guy.mp4';
 import HeroBlock from '../components/HeroBlock.astro';
+import PortfolioSections from '../components/PortfolioSections.astro';
 ---
 
 <div class="page-container">
@@ -15,26 +16,9 @@ import HeroBlock from '../components/HeroBlock.astro';
     </div>
   </section>
 
-  <!-- Content Sections -->
-  <section class="content-section">
-    <div class="container">
-      <h2>Section Title</h2>
-      <p>This is where your content would go. Add as many sections as you need. The page will scroll beyond the hero section.</p>
-    </div>
-  </section>
-
-  <section class="content-section alt-bg">
-    <div class="container">
-      <h2>Another Section</h2>
-      <p>Here's another section with different styling to demonstrate scrolling.</p>
-    </div>
-  </section>
-
-  <section class="content-section">
-    <div class="container">
-      <h2>More Content</h2>
-      <p>You can keep adding sections and the page will scroll smoothly.</p>
-    </div>
+  <!-- Portfolio Content Sections -->
+  <section class="portfolio-section">
+    <PortfolioSections />
   </section>
 </div>
 
@@ -66,7 +50,7 @@ import HeroBlock from '../components/HeroBlock.astro';
 
   .hero-content {
     position: relative;
-    height: 93vh;
+    height: 80vh;
     display: flex;
     align-items: flex-end;
     width: 100%;
@@ -75,38 +59,15 @@ import HeroBlock from '../components/HeroBlock.astro';
     padding: 0 20px;
   }
 
-  /* Content Sections */
-  .content-section {
-    padding: 5rem 0;
+  /* Portfolio Section */
+  .portfolio-section {
+    padding: 3rem 0;
     width: 100%;
-  }
-
-  .alt-bg {
-    background-color: #f5f5f5;
-  }
-
-  .container {
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-
-  /* Typography */
-  h2 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-  }
-
-  p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    color: #333;
   }
 
   /* Responsive adjustments */
   @media screen and (max-width: 768px) {
-    .hero-content, .container {
+    .hero-content {
       padding: 0 15px;
       width: auto;
     }
